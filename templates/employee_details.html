@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+  </head>
+  <body>
+    <div class="container  pt-5" >
+      <div class="card mx-auto" style="width: 18rem;">
+        <img class="card-img-top" src="{{ employees.photo.url }}" alt="Employee photo">
+        <div class="card-body">
+        <p class="card-text">Name: {{ employees.first_name }} {{ employees.last_name }}</p>
+        <p class="card-text">Contact: {{ employees.email_id }}</p>
+        <p class="card-text">As a: {{ employees.designation }}</p>
+        <p class="card-text">Joined: {{ employees.created_at }}</p>
+        <p class="card-text">Last Updated: {{ employees.updated_at }}</p>
+      </div>
+      <a href="{% url "home" %}" class="btn btn-primary">Back to home</a>
+    </div>
+  </body>
+</html>
